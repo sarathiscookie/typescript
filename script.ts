@@ -67,7 +67,53 @@ let users: string | string[];
 users = ['Jane', 'Joe'];
 console.log(users);
 
-////////////////////////////////////////////////////////
+console.log("############### Mix of string and number array ##################");
+console.log("Example 1");
+let anyData:(string | number)[] = ['jane', 2, 3, 4, 'test'];
+console.log(anyData);
+
+console.log("Example 2");
+let anydataTwo:any[] = ['peter', 'smith', 23, 34, 45, 'joe'];
+console.log(anydataTwo); 
+
+console.log("########### Generic #############");
+function genericFeature<T>(arrayData:T[], noramlData:T) {
+    let mergeDatas = [noramlData, ...arrayData];
+    return mergeDatas;
+}
+console.log('Example 1: Return number array');
+let vehiclesSeries = [123, 121, 120, 124];
+let vehicleNewSeries = 1005;
+console.log(genericFeature(vehiclesSeries, vehicleNewSeries));
+
+console.log('Example 1: Return string array');
+let vehicles = ['Audi', 'Volvo', 'Benz'];
+let vehicle = 'BMW';
+console.log(genericFeature(vehicles, vehicle));
+
+console.log('############### Class ################');
+class StudentAccount {
+    firstName: string;
+    lastName: string;
+    age: number;
+    courses: string[];
+
+    constructor(fname:string, lname:string, age: number, courses: string[]) {
+        this.firstName = fname;
+        this.lastName = lname;
+        this.age = age;
+        this.courses = courses;
+    }
+
+    fullName() {
+        return this.firstName +' '+ this.lastName;
+    }
+}
+
+const studentDetails = new StudentAccount('Peter', 'Smith', 25, ['angular', 'react', 'typescript']);
+console.log(studentDetails);
+console.log(studentDetails.fullName());
+
 class Student {
     constructor(public fName:string, public lName:string, public age:number) {}
 
