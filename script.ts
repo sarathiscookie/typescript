@@ -67,3 +67,35 @@ let users: string | string[];
 users = ['Jane', 'Joe'];
 console.log(users);
 
+////////////////////////////////////////////////////////
+class Student {
+    constructor(public fName:string, public lName:string, public age:number) {}
+
+    fullname() {
+        return this.fName+' '+this.lName;
+    }
+
+    studentAge() {
+        return 'I am '+ this.age +' year old.';
+    }
+}
+
+class Admission extends Student {
+    constructor(public fName:string, public lName:string, public age:number, public jDate:string, public tAmount:number, public tDate:string) {
+        super(fName, lName, age);
+    }
+
+    admissionCost = () => {
+        return 'Cost: ' + this.tAmount; 
+    }
+
+    admissionCostIncludingHostel = (hostelFee: number) => {
+        return this.tAmount + hostelFee;
+    }
+}
+
+const adObj = new Admission('Peter', 'Smith', 45, '12.04.2020', 130000, '12.03.2020');
+console.log(adObj.admissionCost());
+console.log(adObj.fullname());
+console.log(adObj.studentAge());
+console.log(adObj.admissionCostIncludingHostel(20000));
