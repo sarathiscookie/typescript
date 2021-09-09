@@ -1,3 +1,8 @@
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 console.log("####### Example: Sum of two values. #######");
 function sumOfValues(a, b) {
     return a + b;
@@ -50,3 +55,40 @@ console.log("Example 2");
 var users;
 users = ['Jane', 'Joe'];
 console.log(users);
+console.log("############### Mix of string and number array ##################");
+console.log("Example 1");
+var anyData = ['jane', 2, 3, 4, 'test'];
+console.log(anyData);
+console.log("Example 2");
+var anydataTwo = ['peter', 'smith', 23, 34, 45, 'joe'];
+console.log(anydataTwo);
+console.log("########### Generic #############");
+function genericFeature(arrayData, noramlData) {
+    var mergeDatas = __spreadArray([noramlData], arrayData);
+    return mergeDatas;
+}
+console.log('Example 1: Return number array');
+var vehiclesSeries = [123, 121, 120, 124];
+var vehicleNewSeries = 1005;
+console.log(genericFeature(vehiclesSeries, vehicleNewSeries));
+console.log('Example 1: Return string array');
+var vehicles = ['Audi', 'Volvo', 'Benz'];
+var vehicle = 'BMW';
+console.log(genericFeature(vehicles, vehicle));
+console.log('############### Class ################');
+var StudentAccount = /** @class */ (function () {
+    function StudentAccount(fname, lname, age, courses) {
+        this.firstName = fname;
+        this.lastName = lname;
+        this.age = age;
+        this.courses = courses;
+    }
+    StudentAccount.prototype.fullName = function () {
+        return this.firstName + ' ' + this.lastName;
+    };
+    return StudentAccount;
+}());
+var studentDetails = new StudentAccount('Peter', 'Smith', 25, ['angular', 'react', 'typescript']);
+console.log(studentDetails);
+console.log(studentDetails.fullName());
+//TODO: Leaning classess "Super Calls"
